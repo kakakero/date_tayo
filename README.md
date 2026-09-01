@@ -1,5 +1,3 @@
-# date_tayo
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,8 +37,8 @@
     }
 
     .sticker {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       object-fit: contain;
     }
 
@@ -87,7 +85,6 @@
       padding: 12px 24px;
     }
 
-    /* Date and Time Picker Form */
     #dateFormContainer {
       display: none;
       width: 100%;
@@ -141,7 +138,7 @@
     <img 
       id="mainImage" 
       class="sticker" 
-      src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1cGphY3R2cnhrcTVucDVsZXpjeWF6cHQ3aXZ5YnhicXRjY241bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1CFxvGOPVpf9g3y/giphy.gif" 
+      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z2czV2eGhrNmhzMW5va3B5a3FmODk0ZzE2YnFhNGR1MGx5aDFiaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1CFxvGOPVpf9g3y/giphy.gif" 
       alt="Cute sticker"
     />
     <h1 id="questionText">Will you go out with me?</h1>
@@ -175,7 +172,6 @@
     const selectedDateInput = document.getElementById("selectedDate");
     const selectedTimeInput = document.getElementById("selectedTime");
 
-    // Restrict calendar so past dates cannot be picked
     const today = new Date().toISOString().split("T")[0];
     selectedDateInput.setAttribute("min", today);
 
@@ -215,19 +211,18 @@
       noBtn.innerText = noPhrases[phraseIndex];
 
       if (noClickCount === 2) {
-        mainImage.src = "https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif";
+        mainImage.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmsyeWl5bnE3NmF6OWV6b3phZmpva3Z6ejEwbWRiYW16ZXpnYjE4biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OPU6wzx8JrHna/giphy.gif";
       }
     });
 
     yesBtn.addEventListener("click", () => {
       questionText.innerText = "YAY!! Libre ko, anw when are you free? ❤️";
-      mainImage.src = "https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif";
+      mainImage.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG9oa2Z5enA4NXFqMHlhNWp6bTJvYzRsdGtzMnQ4dzgyODQ1dXg0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/T86i6yDyOYz7J6dPhf/giphy.gif";
       
       initialButtons.style.display = "none";
       dateFormContainer.style.display = "flex";
     });
 
-    // Helper function to turn 24h format (e.g. 17:30) into 12h format (5:30 PM)
     function formatTime(timeStr) {
       const [hour, minute] = timeStr.split(":");
       let h = parseInt(hour, 10);
@@ -250,7 +245,6 @@
       submitDateBtn.innerText = "Sending... 💌";
       submitDateBtn.disabled = true;
 
-      // Make sure your email has an '@' symbol (e.g., yourname@gmail.com)
       const YOUR_EMAIL = "princeclarenceobandoles@gmail.com";
 
       try {
@@ -267,13 +261,11 @@
           })
         });
 
-        // Final celebration view
         questionText.innerText = `It's a date on ${chosenDate} at ${readableTime}! Sunduin kita 🥰`;
         dateFormContainer.style.display = "none";
-        mainImage.src = "https://media.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif";
+        mainImage.src = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2R4OTBndm5hZmdicmszcjZscTVuNmhrd2phN2NvdW52b3NidGN0YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/artj92V8o75VPL7AeQ/giphy.gif";
 
       } catch (err) {
-        // Fallback: Opens email draft if network block occurs
         window.location.href = `mailto:${YOUR_EMAIL}?subject=Date%20Confirmed!&body=I%20said%20yes!%20Our%20date%20is%20on%20${chosenDate}%20at%20${readableTime}`;
       }
     });
